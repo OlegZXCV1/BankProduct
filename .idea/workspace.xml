@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="edfd2480-6ac3-4eaf-9266-57a371bb4310" name="Changes" comment="add Allure report dir">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "OlegZXCV1"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/OlegZXCV1/BankProduct.git",
+    "accountId": "d1aeac3a-2c08-4052-967b-76e269f57c80"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="357Q73dV3PvAYCtLxzNfaEX8v0E" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.BankProduct [compile].executor": "Run",
+    "Maven.BankProduct [test].executor": "Run",
+    "Maven.bank-products [clean].executor": "Run",
+    "Maven.bank-products [compile].executor": "Run",
+    "Maven.bank-products [test].executor": "Run",
+    "Maven.bank-products [validate].executor": "Run",
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target" />
+    </key>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edfd2480-6ac3-4eaf-9266-57a371bb4310" name="Changes" comment="" />
+      <created>1762458459974</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762458459974</updated>
+    </task>
+    <task id="LOCAL-00001" summary="fix use Spring Boot architecture for banking products">
+      <option name="closed" value="true" />
+      <created>1762460550400</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762460550400</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add ExtendedBankProductTests">
+      <option name="closed" value="true" />
+      <created>1762460876271</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762460876271</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add BankProductControllerTests">
+      <option name="closed" value="true" />
+      <created>1762461490264</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762461490264</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add Allure report">
+      <option name="closed" value="true" />
+      <created>1762462450857</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762462450857</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add Allure report dir">
+      <option name="closed" value="true" />
+      <created>1762462872868</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762462872868</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix use Spring Boot architecture for banking products" />
+    <MESSAGE value="add ExtendedBankProductTests" />
+    <MESSAGE value="add BankProductControllerTests" />
+    <MESSAGE value="add Allure report" />
+    <MESSAGE value="add Allure report dir" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Allure report dir" />
+  </component>
+</project>
