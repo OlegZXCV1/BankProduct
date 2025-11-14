@@ -1,21 +1,57 @@
-# BankProduct
-BankProduct tests
+# Bank Products
 
-Задача:
-Вам необходимо выстроить и написать архитектуру для банковских продуктов на джава спринг. Банковскими продуктами являются – кредитная карта, дебетовая карта, валютная дебетовая карта и вклад.
-- Карты и вклад имеют параметры: валюта, баланс и название
-- Карты содержат методы: пополнение, списание, запрос баланса
-- Кредитная карта имеет дополнительный метод запрос задолженности и дополнительный параметр процентная ставка
-- Вклад содержит методы: пополнение, запрос баланса, закрытие
-Опишите вашу структуру/архитектуру в классах. Учтите, что продуктов в будущем станет больше - то есть предусмотрите возможность изменения вашей архитектуры без различных проблем и лишних правок.
-Напишите unit тесты для проверки реализованной архитектуры.
+This project provides a Spring Boot-based architecture for managing various banking products. It's designed to be extensible, allowing for the addition of new products with minimal changes to the existing structure.
 
-Запускаем тесты:
+## Features
+
+*   **Object-Oriented Design:** The architecture is built using object-oriented principles, with a clear hierarchy of classes representing different bank products.
+*   **Extensible:** The design allows for the easy addition of new bank products in the future.
+*   **REST API:** A RESTful API is provided for interacting with the bank products.
+*   **Unit Tests:** The project includes a comprehensive suite of unit tests to ensure the correctness of the implementation.
+*   **Allure Reporting:** Allure is integrated for generating detailed and interactive test reports.
+
+## Requirements
+
+*   Java 17 or higher
+*   Maven 3.6.3 or higher
+
+## Getting Started
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/BankProduct.git
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd BankProduct
+    ```
+3.  **Build the project:**
+    ```bash
+    mvn clean install
+    ```
+
+## Usage
+
+### Running Tests
+
+To run the unit tests, execute the following command:
+
+```bash
 mvn clean test
+```
 
-Генерируем Allure отчет:
+### Generating Allure Report
+
+To generate an Allure report, run the following command:
+
+```bash
 mvn allure:report
+```
 
-Просмотрим отчёт в браузере:
+### Viewing the Allure Report
+
+To view the Allure report in your browser, use the following command:
+
+```bash
 mvn allure:serve
-
+```
