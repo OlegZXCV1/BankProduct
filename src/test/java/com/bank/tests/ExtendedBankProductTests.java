@@ -104,4 +104,40 @@ class ExtendedBankProductTests {
         service.withdraw("cc1", 200);
         assertEquals(200, creditCard.getDebt());
     }
+
+    // ====== Mortgage Tests ======
+    @Test
+    void testMortgageDepositAndWithdraw() {
+        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        service.registerProduct("m1", mortgage);
+
+        service.deposit("m1", 1000);
+        assertEquals(199000, service.getBalance("m1"));
+
+        assertThrows(IllegalArgumentException.class, () -> service.deposit("m1", -100));
+        assertThrows(UnsupportedOperationException.class, () -> service.withdraw("m1", 500));
+    }
+
+    @Test
+    void testMortgageDepositZero() {
+        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        service.registerProduct("m2", mortgage);
+
+        assertThrows(IllegalArgumentException.class, () -> service.deposit("m2", 0));
+    }
+
+    @Test
+    void testMortgageGetters() {
+        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("My Mortgage", "EUR", 150000);
+        assertEquals("My Mortgage", mortgage.getName());
+        assertEquals("EUR", mortgage.getCurrency());
+        assertEquals(150000, mortgage.getBalance());
+    }
+
+    @Test
+    void testMortgageToString() {
+        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        String expected = "AbstractBankProduct{name='Mortgage', currency='USD', balance=200000.0}";
+        assertEquals(expected, mortgage.toString());
+    }
 }

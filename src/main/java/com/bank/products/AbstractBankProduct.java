@@ -40,4 +40,13 @@ public abstract class AbstractBankProduct implements BankProduct {
   protected void setBalance(double newBalance) {
     this.balance = newBalance;
   }
+
+  @Override
+  public String toString() {
+    return "AbstractBankProduct{" +
+        "name='" + name + '\'' +
+        ", currency='" + currency + '\'' +
+        ", balance=" + balance +
+        '}';
+  }
 }
