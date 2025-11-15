@@ -23,8 +23,7 @@ class ExtendedBankProductTests {
     // ====== Debit Card Tests ======
     @Test
     void testDebitCardDepositAndWithdraw() {
-        DebitCard debitCard = new DebitCard("Debit Card", "USD", 100);
-        service.registerProduct("d1", debitCard);
+        createAndRegisterDebitCard("d1", "Debit Card", "USD", 100);
 
         service.deposit("d1", 50);
         assertEquals(150, service.getBalance("d1"));
@@ -35,17 +34,14 @@ class ExtendedBankProductTests {
 
     @Test
     void testDebitCardWithdrawTooMuch() {
-        DebitCard debitCard = new DebitCard("Debit Card", "USD", 100);
-        service.registerProduct("d2", debitCard);
-
+        createAndRegisterDebitCard("d2", "Debit Card", "USD", 100);
         assertThrows(IllegalArgumentException.class, () -> service.withdraw("d2", 150));
     }
 
     // ====== Currency Debit Card Tests ======
     @Test
     void testCurrencyDebitCardOperations() {
-        CurrencyDebitCard currencyCard = new CurrencyDebitCard("Currency Card", "EUR", 200);
-        service.registerProduct("c1", currencyCard);
+        createAndRegisterCurrencyDebitCard("c1", "Currency Card", "EUR", 200);
 
         service.deposit("c1", 50);
         assertEquals(250, service.getBalance("c1"));
@@ -57,8 +53,7 @@ class ExtendedBankProductTests {
     // ====== Credit Card Tests ======
     @Test
     void testCreditCardDebtAndInterest() {
-        CreditCard creditCard = new CreditCard("Credit Card", "USD", 0, 12.5);
-        service.registerProduct("cc1", creditCard);
+        CreditCard creditCard = createAndRegisterCreditCard("cc1", "Credit Card", "USD", 0, 12.5);
 
         // Withdraw increases debt
         service.withdraw("cc1", 500);
@@ -69,8 +64,7 @@ class ExtendedBankProductTests {
     // ====== Deposit Tests ======
     @Test
     void testDepositDepositAndClose() {
-        Deposit deposit = new Deposit("Deposit", "USD", 1000);
-        service.registerProduct("dep1", deposit);
+        Deposit deposit = createAndRegisterDeposit("dep1", "Deposit", "USD", 1000);
 
         service.deposit("dep1", 500);
         assertEquals(1500, service.getBalance("dep1"));
@@ -85,21 +79,15 @@ class ExtendedBankProductTests {
     // ====== Unsupported operations ======
     @Test
     void testUnsupportedOperations() {
-        Deposit deposit = new Deposit("Deposit", "USD", 1000);
-        service.registerProduct("dep2", deposit);
-
-        // Withdraw not supported
+        createAndRegisterDeposit("dep2", "Deposit", "USD", 1000);
         assertThrows(UnsupportedOperationException.class, () -> service.withdraw("dep2", 100));
     }
 
     // ====== Multiple products management ======
     @Test
     void testMultipleProducts() {
-        DebitCard debitCard = new DebitCard("Debit Card", "USD", 100);
-        CreditCard creditCard = new CreditCard("Credit Card", "USD", 0, 15);
-
-        service.registerProduct("d1", debitCard);
-        service.registerProduct("cc1", creditCard);
+        DebitCard debitCard = createAndRegisterDebitCard("d1", "Debit Card", "USD", 100);
+        CreditCard creditCard = createAndRegisterCreditCard("cc1", "Credit Card", "USD", 0, 15);
 
         service.deposit("d1", 50);
         assertEquals(150, service.getBalance("d1"));
@@ -111,8 +99,7 @@ class ExtendedBankProductTests {
     // ====== Mortgage Tests ======
     @Test
     void testMortgageDepositAndWithdraw() {
-        Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
-        service.registerProduct("m1", mortgage);
+        createAndRegisterMortgage("m1", "Mortgage", "USD", 200000);
 
         service.deposit("m1", 1000);
         assertEquals(199000, service.getBalance("m1"));
@@ -123,15 +110,13 @@ class ExtendedBankProductTests {
 
     @Test
     void testMortgageDepositZero() {
-        Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
-        service.registerProduct("m2", mortgage);
-
+        createAndRegisterMortgage("m2", "Mortgage", "USD", 200000);
         assertThrows(IllegalArgumentException.class, () -> service.deposit("m2", 0));
     }
 
     @Test
     void testMortgageGetters() {
-        Mortgage mortgage = new com.bank.products.Mortgage("My Mortgage", "EUR", 150000);
+        Mortgage mortgage = new Mortgage("My Mortgage", "EUR", 150000);
         assertEquals("My Mortgage", mortgage.getName());
         assertEquals("EUR", mortgage.getCurrency());
         assertEquals(150000, mortgage.getBalance());
@@ -139,8 +124,39 @@ class ExtendedBankProductTests {
 
     @Test
     void testMortgageToString() {
-        Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        Mortgage mortgage = new Mortgage("Mortgage", "USD", 200000);
         String expected = "AbstractBankProduct{name='Mortgage', currency='USD', balance=200000.0}";
         assertEquals(expected, mortgage.toString());
+    }
+
+    // ====== Helper methods ======
+    private DebitCard createAndRegisterDebitCard(String id, String name, String currency, double balance) {
+        DebitCard debitCard = new DebitCard(name, currency, balance);
+        service.registerProduct(id, debitCard);
+        return debitCard;
+    }
+
+    private CurrencyDebitCard createAndRegisterCurrencyDebitCard(String id, String name, String currency, double balance) {
+        CurrencyDebitCard currencyCard = new CurrencyDebitCard(name, currency, balance);
+        service.registerProduct(id, currencyCard);
+        return currencyCard;
+    }
+
+    private CreditCard createAndRegisterCreditCard(String id, String name, String currency, double balance, double interestRate) {
+        CreditCard creditCard = new CreditCard(name, currency, balance, interestRate);
+        service.registerProduct(id, creditCard);
+        return creditCard;
+    }
+
+    private Deposit createAndRegisterDeposit(String id, String name, String currency, double balance) {
+        Deposit deposit = new Deposit(name, currency, balance);
+        service.registerProduct(id, deposit);
+        return deposit;
+    }
+
+    private Mortgage createAndRegisterMortgage(String id, String name, String currency, double balance) {
+        Mortgage mortgage = new Mortgage(name, currency, balance);
+        service.registerProduct(id, mortgage);
+        return mortgage;
     }
 }
