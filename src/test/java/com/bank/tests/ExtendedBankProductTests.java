@@ -1,6 +1,9 @@
 package com.bank.tests;
 
-import com.bank.products.cards.*;
+import com.bank.products.Mortgage;
+import com.bank.products.cards.CreditCard;
+import com.bank.products.cards.CurrencyDebitCard;
+import com.bank.products.cards.DebitCard;
 import com.bank.products.deposits.Deposit;
 import com.bank.service.BankProductService;
 import org.junit.jupiter.api.BeforeEach;
@@ -108,7 +111,7 @@ class ExtendedBankProductTests {
     // ====== Mortgage Tests ======
     @Test
     void testMortgageDepositAndWithdraw() {
-        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
         service.registerProduct("m1", mortgage);
 
         service.deposit("m1", 1000);
@@ -120,7 +123,7 @@ class ExtendedBankProductTests {
 
     @Test
     void testMortgageDepositZero() {
-        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
         service.registerProduct("m2", mortgage);
 
         assertThrows(IllegalArgumentException.class, () -> service.deposit("m2", 0));
@@ -128,7 +131,7 @@ class ExtendedBankProductTests {
 
     @Test
     void testMortgageGetters() {
-        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("My Mortgage", "EUR", 150000);
+        Mortgage mortgage = new com.bank.products.Mortgage("My Mortgage", "EUR", 150000);
         assertEquals("My Mortgage", mortgage.getName());
         assertEquals("EUR", mortgage.getCurrency());
         assertEquals(150000, mortgage.getBalance());
@@ -136,7 +139,7 @@ class ExtendedBankProductTests {
 
     @Test
     void testMortgageToString() {
-        com.bank.products.Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
+        Mortgage mortgage = new com.bank.products.Mortgage("Mortgage", "USD", 200000);
         String expected = "AbstractBankProduct{name='Mortgage', currency='USD', balance=200000.0}";
         assertEquals(expected, mortgage.toString());
     }

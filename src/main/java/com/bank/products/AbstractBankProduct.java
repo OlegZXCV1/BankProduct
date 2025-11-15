@@ -43,10 +43,10 @@ public abstract class AbstractBankProduct implements BankProduct {
 
   @Override
   public String toString() {
-    return "AbstractBankProduct{" +
-        "name='" + name + '\'' +
-        ", currency='" + currency + '\'' +
-        ", balance=" + balance +
-        '}';
+    return "AbstractBankProduct{"
+        + "name='" + name + '\''
+        + ", currency='" + currency + '\''
+        + ", balance=" + balance
+        + '}';
   }
 }
