@@ -23,11 +23,14 @@ public class Mortgage extends AbstractBankProduct implements Withdrawable, Depos
 
   @Override
   public void deposit(double amount) {
-    // TODO: Implement mortgage deposit logic
+    if (amount <= 0) {
+      throw new IllegalArgumentException("Deposit amount must be positive.");
+    }
+    this.balance -= amount;
   }
 
   @Override
   public void withdraw(double amount) {
-    // TODO: Implement mortgage withdrawal logic
+    throw new UnsupportedOperationException("Withdrawal from a mortgage is not supported.");
   }
 }
